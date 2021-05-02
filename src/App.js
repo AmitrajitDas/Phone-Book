@@ -1,7 +1,11 @@
+//package imports
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
+// components
 import Navbar from './components/elements/Navbar/Navbar';
+import Contacts from './components/elements/Contacts/Contacts';
 
+//styles
 import './App.css';
 
 const App = () => {
@@ -20,7 +24,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <div>
-      <Navbar />
+        <Navbar />
+        <Contacts />
     </div>
     </ThemeProvider>
     
