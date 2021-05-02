@@ -13,8 +13,12 @@ export const useStyles = makeStyles((theme) => ({
 
   button: {
     backgroundColor: theme.palette.secondary.main,
+    color : theme.palette.primary.main,
     marginTop: '0.5rem',
     marginLeft : '5rem',
+    '&:hover': {
+            color: theme.palette.secondary.main
+          },
   },
   
 
