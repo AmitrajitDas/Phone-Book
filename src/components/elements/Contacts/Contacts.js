@@ -1,6 +1,5 @@
-import React from 'react';
-
-//mui components
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,12 +7,14 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
 
-// styles
+
 import { useStyles } from './styles';
 
-const createData = (name, calories, fat, carbs, protein) => {
-    return { name, calories, fat, carbs, protein };
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
 }
 
 const rows = [
@@ -24,38 +25,56 @@ const rows = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
+
+
 const Contacts = () => {
+  const classes = useStyles();
 
-    const classes = useStyles();
+  const contacts = useSelector(state => state.contacts);
+  console.log(contacts);
 
-    return (
-        <TableContainer component={Paper}>
+  const [checked, setChecked] = useState(true);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+
+  return (
+    <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
-        <TableHead>
+        <TableHead >
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+           <Checkbox
+            onChange={handleChange}
+            color="primary"
+            inputProps={{ 'aria-label': 'primary checkbox' }}
+          />
+            <TableCell>Name</TableCell>
+            <TableCell>Phone</TableCell>
+            <TableCell>E-mail</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+      { contacts.map((contact) =>(
+          <TableRow >
+            <Checkbox
+            onChange={handleChange}
+            color="primary"
+            inputProps={{ 'aria-label': 'primary checkbox' }}
+          />
               <TableCell component="th" scope="row">
-                {row.name}
+                {contact.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell>{contact.phone}</TableCell>
+              <TableCell>{contact.email}</TableCell>
             </TableRow>
-          ))}
+        ))
+      }
+            
         </TableBody>
       </Table>
     </TableContainer>
-    );
+  );
 }
 
-export default Contacts
+export default Contacts;
