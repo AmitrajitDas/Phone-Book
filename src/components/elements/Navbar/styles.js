@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   navButton: {
     marginRight: theme.spacing(2),
+    color: theme.palette.secondary.main,
   },
   title: {
     flexGrow: 1,

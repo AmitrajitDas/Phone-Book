@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 // mui components
 import Grid from '@material-ui/core/Grid';
@@ -21,12 +22,14 @@ const Navbar = () => {
         <Toolbar>
         <Grid container spacing={5}>
             <Grid item md={10}>
-                <IconButton edge="start" className={classes.navButton} color="inherit" aria-label="menu">
+            <Link to="/" style={{ textDecoration: 'none' }}>
+                <IconButton edge="start" className={classes.navButton} aria-label="menu">
                     Phone Book
                 </IconButton>
+            </Link>
             </Grid>
             <Grid item md={2}>
-                <Button className={classes.button}>Create Contact</Button>
+                <Link to="/add-contact" style={{ textDecoration: 'none' }}><Button className={classes.button}>Create Contact</Button></Link>
             </Grid>
         </Grid>
         </Toolbar>
