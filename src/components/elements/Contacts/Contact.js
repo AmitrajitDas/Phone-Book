@@ -6,9 +6,16 @@ import Avatar from 'react-avatar';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const Contact = ({ contact }) => {
+
+import { useStyles } from './styles';
+
+    
+
+    const Contact = ({ contact }) => {
 
     const {name, phone, email} = contact;
+
+    const classes = useStyles();
     
     const [checked, setChecked] = useState(true);
 
@@ -29,11 +36,9 @@ const Contact = ({ contact }) => {
               </TableCell>
               <TableCell>{phone}</TableCell>
               <TableCell>{email}</TableCell>
-              <TableCell>
-                  <EditIcon />
-              </TableCell>
-              <TableCell>
-                  <DeleteIcon />
+              <TableCell className={classes.actions}>
+                  <a href="#"><EditIcon style={{ marginRight : '1rem', color: '#04009a'}} /></a>
+                  <a href="#"><DeleteIcon style={{ color: '#ff005c'}} /></a>
               </TableCell>
             </TableRow>
     )
