@@ -30,7 +30,7 @@ const Contacts = () => {
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead >
-          <TableRow>
+          <TableRow style={{ backgroundColor: '#faf2da'}}>
            <Checkbox
             onChange={handleChange}
             color="primary"
@@ -39,8 +39,7 @@ const Contacts = () => {
             <TableCell>Name</TableCell>
             <TableCell>Phone</TableCell>
             <TableCell>E-mail</TableCell>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
+            <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
