@@ -10,6 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 
 
+import Contact from './Contact';
+
 import { useStyles } from './styles';
 
 const Contacts = () => {
@@ -37,22 +39,13 @@ const Contacts = () => {
             <TableCell>Name</TableCell>
             <TableCell>Phone</TableCell>
             <TableCell>E-mail</TableCell>
+            <TableCell></TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
       { contacts.map((contact) =>(
-          <TableRow >
-            <Checkbox
-            onChange={handleChange}
-            color="primary"
-            inputProps={{ 'aria-label': 'primary checkbox' }}
-          />
-              <TableCell component="th" scope="row">
-                {contact.name}
-              </TableCell>
-              <TableCell>{contact.phone}</TableCell>
-              <TableCell>{contact.email}</TableCell>
-            </TableRow>
+          <Contact contact={contact} />
         ))
       }
             
