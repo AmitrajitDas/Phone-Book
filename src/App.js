@@ -1,9 +1,11 @@
 //package imports
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // components
 import Navbar from './components/elements/Navbar/Navbar';
 import Contacts from './components/elements/Contacts/Contacts';
+import AddContact from './components/elements/Contacts/AddContact';
 
 //styles
 import './App.css';
@@ -23,10 +25,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+    <Router>
       <div>
         <Navbar />
-        <Contacts />
-    </div>
+        <Switch>
+          <Route exact path="/" component={Contacts} />
+          <Route exact path="/add-contact" component={AddContact} />
+        </Switch>
+      </div>
+    </Router>
     </ThemeProvider>
     
   );
