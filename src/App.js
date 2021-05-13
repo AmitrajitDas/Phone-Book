@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // components
 import Navbar from './components/elements/Navbar/Navbar';
 import Contacts from './components/elements/Contacts/Contacts';
-import AddContact from './components/elements/Contacts/AddContact';
+import AddContact from './components/elements/Contacts/AddContact/AddContact';
 
 //styles
 import './App.css';
