@@ -7,6 +7,8 @@ import TextField from '@material-ui/core/TextField';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import { v4 as uuidv4 } from 'uuid';
+import { useHistory } from 'react-router-dom';
 
 
 import { useStyles } from './styles';
@@ -16,6 +18,7 @@ const AddContact = () => {
 
     const classes = useStyles();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const [name,setName] = useState("");
     const [phone,setPhone] = useState("");
@@ -24,12 +27,14 @@ const AddContact = () => {
     const CreateContact = e => {
         e.preventDefault();
         const newContact = {
+            id : uuidv4(),
             name: name,
             phone: phone,
             email: email,
         }
 
         dispatch(addContacts(newContact));
+        history.push('/');
     }
 
     return (
