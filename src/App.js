@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/elements/Navbar/Navbar';
 import Contacts from './components/elements/Contacts/Contacts';
 import AddContact from './components/elements/Contacts/AddContact/AddContact';
+import EditContact from './components/elements/Contacts/EditContact/EditContact';
 
 //styles
 import './App.css';
@@ -30,7 +31,8 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Contacts} />
-          <Route exact path="/add-contact" component={AddContact} />
+          <Route exact path="/contacts/add" component={AddContact} />
+          <Route exact path="/contacts/edit/:id" component={EditContact} />
         </Switch>
       </div>
     </Router>

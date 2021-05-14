@@ -29,7 +29,7 @@ const Navbar = () => {
             </Link>
             </Grid>
             <Grid item md={2}>
-                <Link to="/add-contact" style={{ textDecoration: 'none' }}><Button className={classes.button}>Create Contact</Button></Link>
+                <Link to="/contacts/add" style={{ textDecoration: 'none' }}><Button className={classes.button}>Create Contact</Button></Link>
             </Grid>
         </Grid>
         </Toolbar>
