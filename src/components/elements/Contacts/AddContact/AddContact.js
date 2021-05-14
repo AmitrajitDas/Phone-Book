@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import { useDispatch } from 'react-redux';
 
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,10 +10,12 @@ import Button from '@material-ui/core/Button';
 
 
 import { useStyles } from './styles';
+import { addContacts } from '../../../../Redux/Actions/contactActions';
 
 const AddContact = () => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     const [name,setName] = useState("");
     const [phone,setPhone] = useState("");
@@ -20,7 +23,13 @@ const AddContact = () => {
 
     const CreateContact = e => {
         e.preventDefault();
-        console.log(name, phone, email);
+        const newContact = {
+            name: name,
+            phone: phone,
+            email: email,
+        }
+
+        dispatch(addContacts(newContact));
     }
 
     return (
