@@ -12,7 +12,7 @@ import { useHistory } from 'react-router-dom';
 
 
 import { useStyles } from './styles';
-import { addContacts } from '../../../../Redux/Actions/contactActions';
+import { addContact } from '../../../../Redux/Actions/contactActions';
 
 const AddContact = () => {
 
@@ -33,7 +33,7 @@ const AddContact = () => {
             email: email,
         }
 
-        dispatch(addContacts(newContact));
+        dispatch(addContact(newContact));
         history.push('/');
     }
 
