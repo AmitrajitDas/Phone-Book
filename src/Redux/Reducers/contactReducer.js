@@ -1,4 +1,4 @@
-import { CREATE, UPDATE, DELETE } from '../Constants/actionTypes';
+import { CREATE, UPDATE, DELETE, GET } from '../Constants/actionTypes';
 
 const initialState = {
     contacts : [
@@ -232,7 +232,8 @@ const initialState = {
       "bs": "target end-to-end models"
     }
   }
-]
+],
+    contact: null,
 }
 
 export const contactReducer = (state = initialState, action) => {
@@ -242,6 +243,17 @@ export const contactReducer = (state = initialState, action) => {
             return {
                 ...state,
                 contacts: [action.payload, ...state.contacts],
+            };
+          
+        case GET :
+            let arr = state.contacts.filter((contact) => contact.id == action.payload);
+            arr = arr.values();
+            for(let val of arr){
+              arr = val;
+            }
+            return {
+                ...state,
+                contact: arr,
             };
 
         default:
