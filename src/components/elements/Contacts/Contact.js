@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -13,7 +15,7 @@ import { useStyles } from './styles';
 
     const Contact = ({ contact }) => {
 
-    const {name, phone, email} = contact;
+    const {name, phone, email, id} = contact;
 
     const classes = useStyles();
     
@@ -37,8 +39,8 @@ import { useStyles } from './styles';
               <TableCell>{phone}</TableCell>
               <TableCell>{email}</TableCell>
               <TableCell className={classes.actions}>
-                  <a href="#"><EditIcon style={{ marginRight : '1rem', color: '#04009a'}} /></a>
-                  <a href="#"><DeleteIcon style={{ color: '#ff005c'}} /></a>
+                  <Link to={`/contacts/edit/${id}`}><EditIcon style={{ marginRight : '1rem', color: '#04009a'}} /></Link>
+                  <Link to="/#"><DeleteIcon style={{ color: '#ff005c'}} /></Link>
               </TableCell>
             </TableRow>
     )
