@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { useSelector } from 'react-redux';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,7 +18,7 @@ import { useStyles } from './styles';
 const Contacts = () => {
   const classes = useStyles();
 
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(state => state.contactReducer.contacts);
   console.log(contacts);
 
   const [checked, setChecked] = useState(true);
