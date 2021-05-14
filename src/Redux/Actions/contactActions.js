@@ -1,8 +1,15 @@
-import { CREATE, UPDATE, DELETE } from '../Constants/actionTypes';
+import { CREATE, UPDATE, DELETE, GET } from '../Constants/actionTypes';
 
-export const addContacts = (contact) => {
-    return {
+
+// add contact
+export const addContact = (contact) => ({
         type: CREATE,
         payload: contact,
-    };
-};
+});
+
+// get contact
+
+export const getContact = (id) => ({
+    type: GET,
+    payload: id,
+})
