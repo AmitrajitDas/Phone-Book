@@ -7,13 +7,12 @@ import TextField from '@material-ui/core/TextField';
 import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import { v4 as uuidv4 } from 'uuid';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 
 import { useStyles } from './styles';
-import { getContact } from '../../../../Redux/Actions/contactActions';
+import { getContact, updateContact } from '../../../../Redux/Actions/contactActions';
 
 const EditContact = () => {
 
@@ -38,13 +37,20 @@ const EditContact = () => {
         
     }, [contact]);
 
+    const onUpdateContact = (e) => {
+        e.preventDefault();
+
+        const updatedContact = Object.assign(contact, { name: name, phone: phone, email: email });
+        dispatch(updateContact(updatedContact));
+        history.push("/");
+    }
 
 
     return (
         <Grid container justify="center">
             <Card className={classes.root} variant="outlined">
                 <CardContent>
-                    <form className={classes.form}>
+                    <form className={classes.form} onSubmit={(e) => onUpdateContact(e)}>
                         <Grid item xs={12}>
                             <TextField
                             required
@@ -77,7 +83,7 @@ const EditContact = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <CardActions>
-                                <Button className={classes.button} type="submit">Add</Button>
+                                <Button className={classes.button} type="submit">Update</Button>
                             </CardActions>
                                 
                         </Grid>

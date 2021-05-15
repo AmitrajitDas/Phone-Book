@@ -13,3 +13,10 @@ export const getContact = (id) => ({
     type: GET,
     payload: id,
 })
+
+// update contact
+
+export const updateContact = (contact) => ({
+    type: UPDATE,
+    payload: contact,
+})
