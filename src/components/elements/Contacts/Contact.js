@@ -16,23 +16,23 @@ import { deleteContact }from '../../../Redux/Actions/contactActions';
 
     
 
-    const Contact = ({ contact }) => {
+    const Contact = ({ contact,selectAll }) => {
 
     const {name, phone, email, id} = contact;
 
     const classes = useStyles();
     const dispatch = useDispatch();
     
-    const [checked, setChecked] = useState(true);
+    // const [checked, setChecked] = useState(true);
 
-    const handleChange = (event) => {
-        setChecked(event.target.checked);
-    };
+    // const handleChange = (event) => {
+    //     setChecked(event.target.checked);
+    // };
 
     return (
             <TableRow >
             <Checkbox
-            onChange={handleChange}
+            checked={selectAll}
             color="primary"
             inputProps={{ 'aria-label': 'primary checkbox' }}
           />
