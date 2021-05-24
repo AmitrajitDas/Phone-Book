@@ -13,4 +13,4 @@ Then type :
 ```
 npm start
 ```
-to run it on your localhost.
+in your terminal to run it on your localhost.
